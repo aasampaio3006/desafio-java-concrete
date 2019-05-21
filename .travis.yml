@@ -1,8 +1,8 @@
 language: java
 jdk:
   - oraclejdk8
-before_install:
-- mvn install
+script:
+  - ./gradlew build --scan -s
 deploy:
   provider: heroku
   api-key: 
