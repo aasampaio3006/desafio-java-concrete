@@ -1,4 +1,4 @@
-package br.org.desafiojava.desafiojavaconcrete;
+package br.org.desafiojavaconcrete;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;

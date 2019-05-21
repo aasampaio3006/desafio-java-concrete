@@ -1,4 +1,4 @@
-package br.org.desafiojava.desafiojavaconcrete;
+package br.org.desafiojavaconcrete;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
