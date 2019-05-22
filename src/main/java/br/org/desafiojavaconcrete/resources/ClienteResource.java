@@ -35,7 +35,9 @@ public class ClienteResource {
     public ResponseEntity<Response> add(@RequestBody ClienteDto clienteDto, BindingResult result) {
 
         logger.debug("REST request to save Tool : {}", clienteDto);
+        
         Response response = new Response();
+        
         String email = clienteDto.getEmail();
         
         if (service.validaEmail(email) != null) {
@@ -44,10 +46,11 @@ public class ClienteResource {
             return ResponseEntity.badRequest().body(msgErro);
         }
 
-       response.setMensagem(clienteDto);
+        response.setMensagem(clienteDto);
         service.save(clienteDto);
 
         return ResponseEntity.ok(response);
+        
 
     }
 
