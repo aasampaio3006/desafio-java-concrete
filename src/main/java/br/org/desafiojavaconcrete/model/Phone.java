@@ -3,18 +3,21 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package br.org.desafiojavaconcrete;
+package br.org.desafiojavaconcrete.model;
 
-import java.util.Objects;
+import java.io.Serializable;
 
 /**
  *
  * @author Andrade.Sampaio
  */
-class Phone {
-    
+
+class Phone implements Serializable{
+     private static final long serialVersionUID = 1L;
+
     private String number;
     private String ddd;
+
 
     public Phone(String number, String ddd) {
         this.number = number;
@@ -39,36 +42,5 @@ class Phone {
     public String toString() {
         return "Phone{" + "number=" + number + ", ddd=" + ddd + '}';
     }
-    
-    
-
-    @Override
-    public int hashCode() {
-        int hash = 3;
-        return hash;
-    }
-
-    @Override
-    public boolean equals(Object obj) {
-        if (this == obj) {
-            return true;
-        }
-        if (obj == null) {
-            return false;
-        }
-        if (getClass() != obj.getClass()) {
-            return false;
-        }
-        final Phone other = (Phone) obj;
-        if (!Objects.equals(this.number, other.number)) {
-            return false;
-        }
-        if (!Objects.equals(this.ddd, other.ddd)) {
-            return false;
-        }
-        return true;
-    }
-    
-    
     
 }
