@@ -7,6 +7,7 @@ package br.org.desafiojavaconcrete.model;
 
 import java.io.Serializable;
 import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
 import javax.persistence.Column;
@@ -30,7 +31,7 @@ public class Cliente implements Serializable {
     @Column(columnDefinition = "uuid", updatable = false)
     private UUID id;
 
-    @Column(name = "name", nullable = false)
+    @Column(name = "name")
     private String name;
     @Column(name = "email")
     private String email;
@@ -46,7 +47,7 @@ public class Cliente implements Serializable {
     private String token;
 
    @ElementCollection()
-   private List<Phone> phones;
+   private List<Phone> phones = new ArrayList<Phone>();
    
     public Cliente(){
         
