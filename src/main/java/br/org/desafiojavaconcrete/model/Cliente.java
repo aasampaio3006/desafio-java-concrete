@@ -20,7 +20,6 @@ import javax.persistence.Table;
  *
  * @author Andrade.Sampaio
  */
-
 @Entity
 @Table(name = "cliente")
 public class Cliente implements Serializable {
@@ -109,5 +108,7 @@ public class Cliente implements Serializable {
     public String toString() {
         return "Cliente{" + "id=" + id + ", name=" + name + ", email=" + email + ", password=" + password + ", created=" + created + ", modified=" + modified + ", lastLogin=" + lastLogin + ", token=" + token + ", phones=" + phones + '}';
     }
+    
+    
 
 }
