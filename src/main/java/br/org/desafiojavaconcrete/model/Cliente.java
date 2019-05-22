@@ -110,6 +110,4 @@ public class Cliente implements Serializable {
         return "Cliente{" + "id=" + id + ", name=" + name + ", email=" + email + ", password=" + password + ", created=" + created + ", modified=" + modified + ", lastLogin=" + lastLogin + ", token=" + token + ", phones=" + phones + '}';
     }
     
-    
-
 }
