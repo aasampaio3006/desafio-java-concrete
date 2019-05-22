@@ -20,3 +20,10 @@ dependencies {
 	runtimeOnly 'org.hsqldb:hsqldb'
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
 }
+apply plugin: 'jacoco'
+jacocoTestReport {
+    reports {
+        xml.enabled = true
+    }
+}
+check.dependsOn jacocoTestReport
