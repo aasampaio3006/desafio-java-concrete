@@ -32,17 +32,21 @@ public class Cliente implements Serializable {
     private UUID id;
 
     @Column(name = "name")
-    private String name;
+    private String name;    
     @Column(name = "email")
     private String email;
     @Column(name = "password")
     private String password;
     @Column(name = "created")
     private LocalDate created;
+   
     @Column(name = "modified")
     private LocalDate modified;
+    
     @Column(name = "last_login")
     private LocalDate lastLogin;
+    
+    
     @Column(name = "token")
     private String token;
 
