@@ -7,9 +7,9 @@ package br.org.desafiojavaconcrete.model;
 
 import java.io.Serializable;
 import java.time.LocalDate;
-import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 import java.util.UUID;
 import javax.persistence.Column;
 import javax.persistence.ElementCollection;
@@ -31,7 +31,6 @@ public class Usuario implements Serializable {
     @GeneratedValue
     @Column(columnDefinition = "uuid", updatable = false)
     private UUID id;
-
     @Column(name = "name")
     private String name;    
     @Column(name = "email")
@@ -133,6 +132,32 @@ public class Usuario implements Serializable {
     @Override
     public String toString() {
         return "Usuario{" + "id=" + id + ", name=" + name + ", email=" + email + ", password=" + password + ", created=" + created + ", modified=" + modified + ", last_login=" + last_login + ", token=" + token + ", phones=" + phones + '}';
+    }
+
+    @Override
+    public int hashCode() {
+        int hash = 7;
+        hash = 59 * hash + Objects.hashCode(this.id);
+        hash = 59 * hash + Objects.hashCode(this.email);
+        return hash;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
+        if (obj == null) {
+            return false;
+        }
+        if (getClass() != obj.getClass()) {
+            return false;
+        }
+        final Usuario other = (Usuario) obj;
+        if (!Objects.equals(this.id, other.id)) {
+            return false;
+        }
+        return true;
     }
 
   

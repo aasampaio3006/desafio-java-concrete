@@ -12,8 +12,15 @@ import java.io.Serializable;
  * @author Andrade.Sampaio
  */
 public class User implements Serializable{
+    
     private static final long serialVersionUID = 1L;
+
+    public User(String email, String password) {
+        this.email = email;
+        this.password = password;
+    }
        
+    
     private String email;
     private String password;
 

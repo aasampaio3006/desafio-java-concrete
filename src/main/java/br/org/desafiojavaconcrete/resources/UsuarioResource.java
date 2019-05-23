@@ -18,8 +18,6 @@ import br.org.desafiojavaconcrete.service.UsuarioService;
 import br.org.desafiojavaconcrete.model.Usuario;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.validation.BindingResult;
-
 /**
  *
  * @author Andrade.Sampaio
@@ -45,7 +43,7 @@ public class UsuarioResource {
      *
      */
     @PostMapping(value = "create")
-    public ResponseEntity add(@RequestBody Usuario usuario, BindingResult result) {
+    public ResponseEntity add(@RequestBody Usuario usuario) {
 
         logger.debug("REST request to save Tool : {}", usuario);        
         
@@ -72,12 +70,11 @@ public class UsuarioResource {
      *
      */
     @PostMapping(value = "access")
-    public ResponseEntity access(@RequestBody User user, BindingResult result) {
+    public ResponseEntity access(@RequestBody User user) {
 
         logger.debug("REST request validate access : {}", user);
         Usuario usuario = service.validaEmail(user.getEmail());
         Response response = new Response();
-
         if (usuario != null && usuario.getPassword().equals(user.getPassword())) {
             return ResponseEntity.ok().body(usuario);           
         } else {

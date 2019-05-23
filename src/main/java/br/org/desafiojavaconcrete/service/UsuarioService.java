@@ -5,11 +5,15 @@
  */
 package br.org.desafiojavaconcrete.service;
 
+import br.org.desafiojavaconcrete.model.User;
 import br.org.desafiojavaconcrete.model.Usuario;
 import br.org.desafiojavaconcrete.repository.UsuarioRepository;
+import br.org.desafiojavaconcrete.response.Response;
 import java.io.Serializable;
 import javax.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
 /**
@@ -39,6 +43,6 @@ public class UsuarioService implements Serializable {
         Usuario user = repository.save(usuario);
         return user;
     }
-
-
+    
+    
 }
