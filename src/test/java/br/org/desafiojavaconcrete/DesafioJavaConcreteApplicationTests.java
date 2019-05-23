@@ -1,7 +1,7 @@
 package br.org.desafiojavaconcrete;
 
-import br.org.desafiojavaconcrete.repository.ClienteRepository;
-import org.junit.Assert;
+
+import br.org.desafiojavaconcrete.repository.UsuarioRepository;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,13 +13,13 @@ import org.springframework.test.context.junit4.SpringRunner;
 public class DesafioJavaConcreteApplicationTests {
 
     @Autowired
-    private ClienteRepository repository;
+    private UsuarioRepository repository;
     
 	@Test
 	public void contextLoads() {
-       // Cliente cliente = new Cliente("Andrade", "teste@gmail.com", "12456");
-        // repository.save(cliente);
-        // Assert.assertTrue("registros encontrados = 0", repository.count() > 0);
+       // Usuario cliente = new Cliente("Andrade", "teste@gmail.com", "12456");
+       // repository.save(cliente);
+       // Assert.assertTrue("registros encontrados = 0", repository.count() > 0);
             
          // read
        // Cliente clienteSaved = repository.findByNome("Andrade");

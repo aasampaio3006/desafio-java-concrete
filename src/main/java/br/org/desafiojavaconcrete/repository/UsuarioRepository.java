@@ -5,7 +5,9 @@
  */
 package br.org.desafiojavaconcrete.repository;
 
-import br.org.desafiojavaconcrete.model.Cliente;
+
+import br.org.desafiojavaconcrete.model.Usuario;
+import java.util.UUID;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
@@ -14,10 +16,11 @@ import org.springframework.stereotype.Repository;
  * @author Andrade.Sampaio
  */
 @Repository
-public interface ClienteRepository extends JpaRepository<Cliente, Long> {
+public interface UsuarioRepository extends JpaRepository<Usuario, Long> {
     
-    Cliente findByName(String name);
-    Cliente findByEmail(String email);
+    Usuario findByName(String name);
+    Usuario findByEmail(String email);
+    Usuario findById(UUID id);
 } 
     
 
