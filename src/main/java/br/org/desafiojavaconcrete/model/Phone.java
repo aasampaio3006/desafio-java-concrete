@@ -5,14 +5,13 @@
  */
 package br.org.desafiojavaconcrete.model;
 
+
 import java.io.Serializable;
 import java.util.Objects;
-
 /**
  *
  * @author Andrade.Sampaio
  */
-
 public class Phone implements Serializable{
      private static final long serialVersionUID = 1L;
 
@@ -37,6 +36,12 @@ public class Phone implements Serializable{
      */
     public String getDdd() {
         return ddd;
+    }
+
+   
+    @Override
+    public String toString() {
+        return "Phone{" + "number=" + number + ", ddd=" + ddd + '}';
     }
 
     @Override
@@ -67,10 +72,7 @@ public class Phone implements Serializable{
         }
         return true;
     }
-   
-    @Override
-    public String toString() {
-        return "Phone{" + "number=" + number + ", ddd=" + ddd + '}';
-    }
+    
+    
     
 }

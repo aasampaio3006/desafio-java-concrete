@@ -6,7 +6,7 @@
 package br.org.desafiojavaconcrete.model;
 
 import java.io.Serializable;
-import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
@@ -22,6 +22,7 @@ import javax.persistence.Table;
  *
  * @author Andrade.Sampaio
  */
+
 @Entity
 @Table(name = "usuario")
 public class Usuario implements Serializable {
@@ -38,26 +39,30 @@ public class Usuario implements Serializable {
     @Column(name = "password")
     private String password;
     @Column(name = "created")
-    private LocalDate created;   
+    private LocalDateTime created;   
     @Column(name = "modified")
-    private LocalDate modified;    
+    private LocalDateTime modified;    
     @Column(name = "last_login")
-    private LocalDate last_login;    
+    private LocalDateTime last_login;    
     @Column(name = "token")
-    private UUID token;
+    private String token;
 
    @ElementCollection()
    private List<Phone> phones = new ArrayList<Phone>();
    
     public Usuario(){        
     }
+    public Usuario(String email, String password){ 
+         this.email = email;
+        this.password = password;
+    }
     
     public Usuario(String name, String email, String password, List phone) {
         this.name = name;
         this.email = email;
         this.password = password;        
-        this.created = LocalDate.now();
-        this.last_login = LocalDate.now();
+        this.created = LocalDateTime.now();
+        this.last_login = LocalDateTime.now();
         this.phones = phone;
     }
 
@@ -89,35 +94,35 @@ public class Usuario implements Serializable {
         this.password = password;
     }
 
-    public LocalDate getCreated() {
+    public LocalDateTime getCreated() {
         return created;
     }
 
-    public void setCreated(LocalDate created) {
+    public void setCreated(LocalDateTime created) {
         this.created = created;
     }
 
-    public LocalDate getModified() {
+    public LocalDateTime getModified() {
         return modified;
     }
 
-    public void setModified(LocalDate modified) {
+    public void setModified(LocalDateTime modified) {
         this.modified = modified;
     }
 
-    public LocalDate getLast_login() {
+    public LocalDateTime getLast_login() {
         return last_login;
     }
 
-    public void setLast_login(LocalDate last_login) {
+    public void setLast_login(LocalDateTime last_login) {
         this.last_login = last_login;
     }
 
-    public UUID getToken() {
+    public String getToken() {
         return token;
     }
 
-    public void setToken(UUID token) {
+    public void setToken(String token) {
         this.token = token;
     }
 
@@ -127,6 +132,12 @@ public class Usuario implements Serializable {
 
     public void setPhones(List<Phone> phones) {
         this.phones = phones;
+    }
+    
+    public static boolean checkEmail(String email){
+        String EMAIL_PATTERN = "^[_A-Za-z0-9-\\+]+(\\.[_A-Za-z0-9-]+)*@"+"[A-Za-z0-9-]+(\\.[A-Za-z0-9]+)*(\\.[A-Za-z]{2,})$";        
+         boolean status = email.matches(EMAIL_PATTERN);
+         return status;
     }
 
     @Override

@@ -5,15 +5,16 @@
  */
 package br.org.desafiojavaconcrete.service;
 
-import br.org.desafiojavaconcrete.model.User;
+
 import br.org.desafiojavaconcrete.model.Usuario;
+import br.org.desafiojavaconcrete.model.UsuarioDto;
 import br.org.desafiojavaconcrete.repository.UsuarioRepository;
-import br.org.desafiojavaconcrete.response.Response;
+import br.org.desafiojavaconcrete.utils.SenhaUtils;
 import java.io.Serializable;
+import java.time.LocalDateTime;
+import java.util.UUID;
 import javax.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
 /**
@@ -24,25 +25,45 @@ import org.springframework.stereotype.Service;
 public class UsuarioService implements Serializable {
 
     private static final long serialVersionUID = 1L;
+    private UsuarioDto usuarioDto;
 
     @Autowired
     private UsuarioRepository repository;
 
-    public Usuario save(@Valid Usuario usuario) {
-        Usuario newUsuario = new Usuario(usuario.getName(), usuario.getEmail(), usuario.getPassword(), usuario.getPhones());
+    public UsuarioDto save(Usuario usuario) {
+        String senhaEncoded = SenhaUtils.gerarBCrypt(usuario.getPassword());         
+        
+        Usuario newUsuario = new Usuario(usuario.getName(), usuario.getEmail(), senhaEncoded, usuario.getPhones());
+        
         Usuario user = repository.save(newUsuario);
-        return createToken(user);      
+        
+        Usuario userUpdate = createToken(user);
+         usuarioDto = new UsuarioDto(userUpdate.getId(), userUpdate.getCreated(), 
+                                     userUpdate.getModified(), userUpdate.getLast_login(), userUpdate.getToken());
+         
+         
+        return usuarioDto;      
     }
 
-    public Usuario validaEmail(String email) {
+    public Usuario fyndByEmail(String email) {
         return repository.findByEmail(email);
     }
 
-    public Usuario createToken(Usuario usuario) {
-        usuario.setToken(usuario.getId());
+    public Usuario createToken(Usuario usuario) {        
+        String senhaEncoded = SenhaUtils.gerarBCrypt(usuario.getId().toString());
+        usuario.setToken(senhaEncoded);
         Usuario user = repository.save(usuario);
         return user;
     }
+
+    public Usuario validaToken(String token) {        
+        return repository.findByToken(token);
+    }
+    public Usuario findByUUID(UUID id) {        
+        return repository.findById(id);
+    }
+    
+    
     
     
 }
