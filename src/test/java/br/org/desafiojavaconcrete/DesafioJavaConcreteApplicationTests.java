@@ -40,7 +40,6 @@ public class DesafioJavaConcreteApplicationTests {
     public void testFindEmail() {
 
         Usuario usuarioSaved = service.findByUUID(usuarioDto.getId());
-
         Assert.assertTrue("registros nao encontrado na busca", usuarioSaved.getEmail().equals("teste@gmail.com"));
     }
 
@@ -48,7 +47,6 @@ public class DesafioJavaConcreteApplicationTests {
     public void testPassWord() {
 
         Usuario user = new Usuario("teste@gmail.com", "12456");
-
         Usuario usuario = service.fyndByEmail(user.getEmail());
         Assert.assertTrue("logado com sucesso",
                 usuario != null && usuario.getEmail().equals(user.getEmail()));
@@ -56,11 +54,15 @@ public class DesafioJavaConcreteApplicationTests {
 
     @Test
     public void checkEmail() {
-
-        Usuario user = new Usuario("testegmail.com", "12456");
+        Usuario user = new Usuario("teste@gmail.com", "12456");
         boolean status = Usuario.checkEmail(user.getEmail());
-
         Assert.assertTrue("Email valido", status);
+    }
+    
+    
+      @Test
+    public void checkToken() {       
+        Assert.assertTrue("Token valido", usuarioDto.getToken().equals(usuarioDto.getToken()));
     }
 
 }
