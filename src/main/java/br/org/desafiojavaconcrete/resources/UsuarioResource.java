@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package br.org.desafiojavaconcrete.resources;
 
 import org.slf4j.Logger;
@@ -40,15 +35,20 @@ public class UsuarioResource {
     UsuarioService service;
 
     /**
-     * POST / : register usuario.
+     * POST / : Create usuario.
      *
-     * body:{ "name": value "email": value "password": value "phones":[ {
-     * "number": value "ddd": value } ] }
-     *
+     * body:{ "name": value 
+     *        "email": value 
+     *        "password": value 
+     *        "phones":[ {
+     *                    "number": value 
+     *                    "ddd": value } 
+     *                 ] 
+     *      }
      * @param {Usuario} - Usuario object
      *
      * @return 200 - OK and Usuario created
-     *
+     * @return 400 - E-mail já existente
      */
     @PostMapping(value = "create")
     public ResponseEntity add(@RequestBody Usuario usuario) {
@@ -78,8 +78,9 @@ public class UsuarioResource {
      *
      * body:{ "email": value "password": value }
      *
-     * @param {email} - Email Usuario
-     * @param {password} - Password Usuario
+     * body:{ "email": value
+     *        "senha": value
+     *      }
      *
      * @return 200 - OK
      * @return 401 - Invalid user and or password
@@ -112,10 +113,10 @@ public class UsuarioResource {
      *
      * @param {id} - Id Usuario
      * 
-     *
      * @return 200 - OK
      * @return 401 - Invalid user and or password
      * @return 401 - Invalid user and or password
+     * @return 401 - Sessão inválida
      * 
      *
      */

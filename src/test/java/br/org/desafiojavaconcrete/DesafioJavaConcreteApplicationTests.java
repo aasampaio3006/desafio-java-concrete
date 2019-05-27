@@ -20,7 +20,6 @@ public class DesafioJavaConcreteApplicationTests {
 
     @Autowired
     private UsuarioService service;
-
     private static Usuario usuarioTeste;
     private static UsuarioDto usuarioDto;
 
@@ -60,7 +59,7 @@ public class DesafioJavaConcreteApplicationTests {
     }
     
     
-      @Test
+    @Test
     public void checkToken() {       
         Assert.assertTrue("Token valido", usuarioDto.getToken().equals(usuarioDto.getToken()));
     }

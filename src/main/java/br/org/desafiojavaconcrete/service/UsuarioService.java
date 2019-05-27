@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package br.org.desafiojavaconcrete.service;
 
 
@@ -11,9 +6,7 @@ import br.org.desafiojavaconcrete.model.UsuarioDto;
 import br.org.desafiojavaconcrete.repository.UsuarioRepository;
 import br.org.desafiojavaconcrete.utils.SenhaUtils;
 import java.io.Serializable;
-import java.time.LocalDateTime;
 import java.util.UUID;
-import javax.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

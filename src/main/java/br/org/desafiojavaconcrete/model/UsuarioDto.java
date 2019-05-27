@@ -1,14 +1,8 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package br.org.desafiojavaconcrete.model;
+
 
 import java.io.Serializable;
 import java.time.LocalDateTime;
-import java.util.ArrayList;
-import java.util.List;
 import java.util.UUID;
 
 
@@ -16,6 +10,7 @@ import java.util.UUID;
  *
  * @author Andrade.Sampaio
  */
+
 public class UsuarioDto implements Serializable {
 
     private static final long serialVersionUID = 1L;
