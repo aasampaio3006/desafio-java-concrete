@@ -37,6 +37,7 @@ Caso o e-mail já exista, deverá retornar erro com a mensagem "E-mail já exist
 O token deverá ser persistido junto com o usuário
 
 Login
+
 Este endpoint irá receber um objeto com e-mail e senha.
 Caso o e-mail e a senha correspondam a um usuário existente, retornar igual ao endpoint de Criação.
 Caso o e-mail não exista, retornar erro com status apropriado mais a mensagem "Usuário e/ou senha inválidos"
@@ -49,6 +50,7 @@ Caso seja o mesmo token, verificar se o último login foi a MENOS que 30 minutos
 Caso tudo esteja ok, retornar o usuário no mesmo formato do retorno do Login.
 
 Requisitos
+
 Banco de dados em memória, como HSQLDB.
 Processo de build via Gradle.
 Persistência com Hibernate.
@@ -60,6 +62,7 @@ Servidor Tomcat ou Jetty Embedded
 Java 7+
 
 Requisitos desejáveis
+
 JWT como token
 Testes unitários
 Criptogafia não reversível (hash) na senha e no token
